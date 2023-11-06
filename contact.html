@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="Resources/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+
+<body>
+  <header>
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="Resources/amazing_brand.png" alt="Bootstrap" width="140" height="30" class="mx-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end px-2" id="navbarNav">
+          <ul class="navbar-nav fw-semibold">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="upcoming_events.html">UPCOMING EVENTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="past_events.html">PAST EVENTS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="stats.html">STATS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+    <!-- Main Banner -->
+    <div id="bannerCarousel" class="carousel slide">
+      <div class="carousel-indicators">
+        <div class="carousel-caption  d-md-block">
+          <h2>Contact Us</h2>
+          <p class="fs-6 d-none d-md-block">Feel free to reach out to us through our Contact Us page. Your feedback, inquiries, and
+            suggestions are valuable to us.</p>
+        </div>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+      <div class="carousel-inner" style="height: 30vh;">
+        <div class="carousel-item active">
+          <img src="Resources/banner_3.jpg" class="d-block w-100" alt="Banner1">
+        </div>
+        <div class="carousel-item">
+          <img src="Resources/banner_2.jpg" class="d-block w-100" alt="Banner2">
+        </div>
+        <div class="carousel-item">
+          <img src="Resources/banner_1.jpg" class="d-block w-100" alt="Banner3">
+        </div>
+        <div class="carousel-item">
+          <img src="Resources/banner_5.jpg" class="d-block w-100" alt="Banner4">
+        </div>
+        <div class="carousel-item">
+          <img src="Resources/banner_4.jpg" class="d-block w-100" alt="Banner5">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!--Form-->
+    <div class="p-sm-5 ">
+      <form class="border rounded-4 col-sm-6 offset-sm-3 p-5 text-white fw-semibold bg-secondary ">
+        <div class="mb-3 ">
+          <label for="contact_name" class="form-label border-black">Name:</label>
+          <input type="text" class="form-control" id="contact_name" required>
+        </div>
+        <div class="mb-3">
+          <label for="contact_email" class="form-label">Email address:</label>
+          <input type="email" class="form-control" id="contact_email" required>
+        </div>
+        <div class="mb-3">
+          <label for="contact_textarea" class="form-label" style="resize: none;">Message:</label>
+          <textarea class="form-control" id="contact_textarea" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn bg-white fw-semibold">Submit</button>
+      </form>
+    </div>
+    <!-- Footer -->
+    <footer class="d-flex px-4 py-2 justify-content-between bg-secondary text-white" style="height: 7vh;">
+      <div class="justify-self-start">
+        <a href="https://www.facebook.com/amazingevents.pt" target="_blank"><img src="Resources/facebook.png"
+            alt="Facebook" class="mx-1" style="width: 1.7vw;"></a>
+        <a href="https://www.instagram.com/amazingevents.pt" target="_blank"><img src="Resources/instagram.png"
+            alt="Instagram" class="mx-1" style="width: 1.7vw;"></a>
+        <a href="https://api.whatsapp.com/send?phone=0741936683" target="_blank"><img src="Resources/whatsapp.png"
+            alt="Whatsapp" class="mx-1" style="width: 1.7vw;"></a>
+      </div>
+      <p>Created by Jesus Suarez for MindHub</p>
+      <p>Amazing Events</p>
+
+    </footer>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

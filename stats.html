@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Resources/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+
+<body>
+    <header>
+        <!-- Header Navigation -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="Resources/amazing_brand.png" alt="Bootstrap" width="140" height="30" class="mx-2">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end px-2" id="navbarNav">
+                    <ul class="navbar-nav fw-semibold">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="upcoming_events.html">UPCOMING EVENTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="past_events.html">PAST EVENTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">CONTACT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">STATS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- Main Banner -->
+        <div id="bannerCarousel" class="carousel slide">
+            <div class="carousel-indicators">
+                <div class="carousel-caption  d-md-block">
+                    <h2>Stats</h2>
+                    <p class="fs-6 d-none d-md-block">Explore the stats from our past and upcoming events. Dive into the numbers and insights that made
+                        each event unique and memorable.</p>
+                </div>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner" style="height: 30vh;">
+                <div class="carousel-item active">
+                    <img src="Resources/banner_3.jpg" class="d-block w-100" alt="Banner1">
+                </div>
+                <div class="carousel-item">
+                    <img src="Resources/banner_2.jpg" class="d-block w-100" alt="Banner2">
+                </div>
+                <div class="carousel-item">
+                    <img src="Resources/banner_1.jpg" class="d-block w-100" alt="Banner3">
+                </div>
+                <div class="carousel-item">
+                    <img src="Resources/banner_5.jpg" class="d-block w-100" alt="Banner4">
+                </div>
+                <div class="carousel-item">
+                    <img src="Resources/banner_4.jpg" class="d-block w-100" alt="Banner5">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!--Table-->
+        <div class="col-sm-11">
+            <table class="table table-bordered m-5 ">
+                <tbody>
+                    <tr class="table-dark text-center">
+                        <th colspan="3">Events Statistics</th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>Events with higher % of assistance</th>
+                        <th>Events with lower % of assistance</th>
+                        <th>Events with larger capacity</th>
+                    </tr>
+                    <tr>
+                        <td>Avengers: Estimated 9000 out of 9000 (100%)</td>
+                        <td>Halloween Night: Estimated 9000 out of 12000 (75%)</td>
+                        <td>School Book Fair: 150000 </td>
+                    </tr>
+                    <tr>
+                        <td>Metallica in concert: Estimated 138000 out of 138000 (100%)</td>
+                        <td>Art Exhibition: 65892 out of 82000 (80%)</td>
+                        <td>Metallica in concert: 138000</td>
+                    </tr>
+                    <tr>
+                        <td>Festival of the collectivities: 42756 out of 45000 (95%)</td>
+                        <td>School Book Fair: 123286 out of 150000 (82%)</td>
+                        <td>Art Exhibition: 82000</td>
+                    </tr>
+
+                    <tr class="table-dark text-center">
+                        <th colspan="3">Upcoming events statistics by category</th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>Categories</th>
+                        <th>Revenues</th>
+                        <th>Estimated percentage of assistance</th>
+                    </tr>
+                    <tr>
+                        <td>Costume Party</td>
+                        <td>108.000$ (Estimated)</td>
+                        <td>9000 out of 12000 (75%)</td>
+                    </tr>
+                    <tr>
+                        <td>Music Concert</td>
+                        <td>20.700.000$ (Estimated)</td>
+                        <td>138000 out of 138000 (100%)</td>
+                    </tr>
+                    
+                    <tr class="table-dark text-center">
+                        <th colspan="3">Past events statistics by category</th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>Categories</th>
+                        <th>Revenues</th>
+                        <th>Percentage of assistance</th>
+                    </tr>
+                    <tr>
+                        <td>Food Fair</td>
+                        <td>213.750$</td>
+                        <td>42756 out of 45000 (95%)</td>
+                    </tr>
+                    <tr>
+                        <td>Museum</td>
+                        <td>988.380$</td>
+                        <td>65892 out of 82000 (80%)</td>
+                    </tr>
+                    <tr>
+                        <td>Race</td>
+                        <td>77.094$</td>
+                        <td>25698 out of 30000 (85%)</td>
+                    </tr>
+                    <tr>
+                        <td>Book Exchange</td>
+                        <td>123.286$</td>
+                        <td>123286 out of 150000 (82%)</td>
+                    </tr>
+                    <tr>
+                        <td>Let's go to the cinema</td>
+                        <td>2.250.000$</td>
+                        <td>9000 out of 9000 (100%)</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <!-- Footer -->
+        <footer class="d-flex px-4 py-2 justify-content-between bg-secondary text-white" style="height: 7vh;">
+            <div class="justify-self-start">
+                <a href="https://www.facebook.com/amazingevents.pt" target="_blank"><img src="Resources/facebook.png"
+                        alt="Facebook" class="mx-1" style="width: 1.7vw;"></a>
+                <a href="https://www.instagram.com/amazingevents.pt" target="_blank"><img src="Resources/instagram.png"
+                        alt="Instagram" class="mx-1" style="width: 1.7vw;"></a>
+                <a href="https://api.whatsapp.com/send?phone=0741936683" target="_blank"><img
+                        src="Resources/whatsapp.png" alt="Whatsapp" class="mx-1" style="width: 1.7vw;"></a>
+            </div>
+            <p>Created by Jesus Suarez for MindHub</p>
+            <p>Amazing Events</p>
+
+        </footer>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
