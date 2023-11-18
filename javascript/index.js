@@ -195,26 +195,39 @@ let data = {
     ],
 };
 
-let detailCards = document.getElementById("detail-cards")
+let carrusel = document.getElementById("carousel-cards")
 
-for (let i = 0; i < data.events.length; i++) {  
-    let card = document.createElement("div")
-    card.classList.add("card", "mb-3", "my-3", "vw-92")
-    card.innerHTML = 
-    `<div class="row g-0">
-        <div class="col-md-4">
-            <img src="${data.events[i].image}" class="img-fluid rounded-start w-100 v-100" alt="${data.events[i].name}">
-        </div>
-        <div class="col-md-8">
+for (let i = 0; i < data.events.length; i += 4) {
+    let carruselItem
+    if (i < 4) {
+        carruselItem = document.createElement("div")
+        carruselItem.classList.add("carousel-item", "active")
+    } else {
+        carruselItem = document.createElement("div")
+        carruselItem.classList.add("carousel-item")
+    }
+    let contenedor = document.createElement("div")
+    contenedor.classList.add("d-block", "d-md-flex", "justify-content-around")
+
+    for (let j = i; j < i + 4; j++) {
+        if (data.events[j] != undefined) {
+            let card = document.createElement("div")
+            card.classList.add("card", "mx-1", "my-3", "border", "col-12", "col-md-3", "cardSize")
+            card.innerHTML = `
+            <img src="${data.events[j].image}" class="card-img-top h-50" alt="${data.events[j].name}">
             <div class="card-body">
-                <h4>${data.events[i].name}</h4>
-                <p style="text-align: justify">${data.events[i].description}</p>
-                <p>Date: ${data.events[i].date}</p>
-                <p>Place: ${data.events[i].place}</p>
-                <p>Price: ${data.events[i].price}$</p>
+                <h5 class="card-title">${data.events[j].name}</h5>
+                <p class="card-text">${data.events[j].description}</p>
+                
             </div>
-        </div>
-    </div>`
-    detailCards.appendChild(card)
-}     
-    
+            <div class="card-text d-flex justify-content-around align-items-center">
+            <p>Price: ${data.events[j].price}$</p>
+            <a href="details.html" class="btn btn-primary my-3">More Details</a>
+            </div>`
+            console.log(card);
+            contenedor.appendChild(card)
+        }
+    }
+    carruselItem.appendChild(contenedor)
+    carrusel.appendChild(carruselItem)
+}

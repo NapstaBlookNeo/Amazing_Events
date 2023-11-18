@@ -17,7 +17,7 @@
     <!-- Header Navigation -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
           <img src="Resources/amazing_brand.png" alt="Bootstrap" width="140" height="30" class="mx-2">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,7 +50,7 @@
 
   <main>
     <!-- Main Banner -->
-    <div id="bannerCarousel" class="carousel slide">
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <div class="carousel-caption  d-md-block">
           <h2>Contact Us</h2>
@@ -81,19 +81,11 @@
           <img src="Resources/banner_4.jpg" class="d-block w-100" alt="Banner5">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
 
     <!--Form-->
     <div class="p-sm-5 ">
-      <form class="border rounded-4 col-sm-6 offset-sm-3 p-5 text-white fw-semibold bg-secondary ">
+      <form class="border rounded-4 col-sm-6 offset-sm-3 p-5 text-white fw-semibold bg-dark">
         <div class="mb-3 ">
           <label for="contact_name" class="form-label border-black">Name:</label>
           <input type="text" class="form-control" id="contact_name" required>

@@ -224,7 +224,7 @@ for (let i = 0; i < pastEventsdata.length; i += 4) {
     for (let j = i; j < i + 4; j++) {
         if (pastEventsdata[j] != undefined) {
             let card = document.createElement("div")
-            card.classList.add("card", "mx-1", "my-3", "border", "col-12", "col-md-3")
+            card.classList.add("card", "mx-1", "my-3", "border", "col-12", "col-md-3", "cardSize")
             card.innerHTML = `
             <img src="${pastEventsdata[j].image}" class="card-img-top h-50" alt="${pastEventsdata[j].name}">
             <div class="card-body">
