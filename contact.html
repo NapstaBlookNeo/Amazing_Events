@@ -64,7 +64,7 @@
         <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
       </div>
-      <div class="carousel-inner" style="height: 30vh;">
+      <div class="carousel-inner carouselSize">
         <div class="carousel-item active">
           <img src="Resources/banner_3.jpg" class="d-block w-100" alt="Banner1">
         </div>
@@ -84,8 +84,8 @@
     </div>
 
     <!--Form-->
-    <div class="p-sm-5 ">
-      <form class="border rounded-4 col-sm-6 offset-sm-3 p-5 text-white fw-semibold bg-dark">
+    <div class="p-md-5 ">
+      <form class="border rounded-4 col-md-6 offset-md-3 p-5 text-white fw-semibold bg-dark">
         <div class="mb-3 ">
           <label for="contact_name" class="form-label border-black">Name:</label>
           <input type="text" class="form-control" id="contact_name" required>
@@ -95,25 +95,24 @@
           <input type="email" class="form-control" id="contact_email" required>
         </div>
         <div class="mb-3">
-          <label for="contact_textarea" class="form-label" style="resize: none;">Message:</label>
+          <label for="contact_textarea" class="form-label">Message:</label>
           <textarea class="form-control" id="contact_textarea" rows="4"></textarea>
         </div>
         <button type="submit" class="btn bg-white fw-semibold">Submit</button>
       </form>
     </div>
     <!-- Footer -->
-    <footer class="d-flex px-4 py-2 justify-content-between bg-secondary text-white" style="height: 7vh;">
-      <div class="justify-self-start">
+    <footer class="d-block d-md-flex py-2 justify-content-around  bg-secondary text-white ">
+      <div class="justify-content-center justify-content-md-start d-flex col-12 col-md-4">
         <a href="https://www.facebook.com/amazingevents.pt" target="_blank"><img src="Resources/facebook.png"
-            alt="Facebook" class="col-4" style="width: 1.7vw;"></a>
+            alt="Facebook" class="mx-3"></a>
         <a href="https://www.instagram.com/amazingevents.pt" target="_blank"><img src="Resources/instagram.png"
-            alt="Instagram" class="col-4" style="width: 1.7vw;"></a>
+            alt="Instagram" class="mx-3"></a>
         <a href="https://api.whatsapp.com/send?phone=0741936683" target="_blank"><img src="Resources/whatsapp.png"
-            alt="Whatsapp" class="col-4" style="width: 1.7vw;"></a>
+            alt="Whatsapp" class="mx-3"></a>
       </div>
-      <p>Created by Jesus Suarez for MindHub</p>
-      <p>Amazing Events</p>
-
+      <p class="col-12 col-md-4 text-center">Created by Jesus Suarez for MindHub</p>
+      <p class="col-12 col-md-4 text-center text-md-end">Amazing Events</p>
     </footer>
   </main>
 

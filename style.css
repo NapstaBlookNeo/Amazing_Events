@@ -1,15 +1,47 @@
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
     width: 5vw;
- }
+}
 
-.detailCard img{
+.detailCard img {
     height: 100%;
 }
+.carouselSize{
+    height: 20vh;
+}
 
+footer {
+    height: 100%;
+    font-size: 100%;
+}
 
+footer img {
+    height: 8vw;
+}
+
+footer p {
+    padding: 0;
+    margin: 0;
+}
+
+label{
+    resize: none;
+}
 
 @media screen and (min-width: 768px) {
-    .cardSize{
-    height: 420px;
+    .cardSize {
+        height: 420px;
+    }
+
+    footer img {
+        height: 3vw;
+    }
+
+    footer p {
+        padding: 1vh 2vw;
+        margin: 0;
+    }
+    .carouselSize{
+        height: 30vh;
+    }
 }
-  }
