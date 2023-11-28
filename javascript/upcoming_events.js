@@ -194,52 +194,99 @@ let data = {
         },
     ],
 };
-let upcomingEventsdata = []
+let upcomingEventsdata = { events: [] }
+let filteredCategories = { events: [] }
+let dataCategorized = { events: [] }
+let categories = [];
+
 
 let todayDate = new Date(data.currentDate)
 let tempArrayPosition = 0
 
-for (let i = 0; i < data.events.length; i++) {
-        let eventDate = new Date(data.events[i].date)
-            if (eventDate > todayDate) {
-                upcomingEventsdata[tempArrayPosition] = data.events[i]
-                tempArrayPosition++
-            }   
+upcomingEventsdata.events = data.events.filter(event => {
+    let eventDate = new Date(event.date);
+    return eventDate > todayDate;
+});
+
+//Carousel render
+let carrusel = document.getElementById("carousel-cards");
+document.addEventListener('DOMContentLoaded', () => renderCarousel(upcomingEventsdata));
+
+let dataToRender = dataCategorized.events.length > 0 ? dataCategorized : upcomingEventsdata
+
+function renderCarousel(dataToRender) {
+    carrusel.innerHTML = '';
+
+    if (dataToRender.events.length === 0) {
+        dataToRender = upcomingEventsdata;
+    }
+
+    for (let i = 0; i < dataToRender.events.length; i += 4) {
+        let carruselItem
+        if (i < 4) {
+            carruselItem = document.createElement("div")
+            carruselItem.classList.add("carousel-item", "active")
+        } else {
+            carruselItem = document.createElement("div")
+            carruselItem.classList.add("carousel-item")
+        }
+        let container = document.createElement("div")
+        container.classList.add("d-block", "d-md-flex", "justify-content-around")
+
+        for (let j = i; j < i + 4; j++) {
+            if (dataToRender.events[j] != undefined) {
+                let card = document.createElement("div")
+                card.classList.add("card", "mx-1", "my-3", "border", "col-12", "col-md-3", "cardSize")
+                card.innerHTML = `
+                <img src="${dataToRender.events[j].image}" class="card-img-top h-50" alt="${dataToRender.events[j].name}">
+                <div class="card-body">
+                    <h5 class="card-title">${dataToRender.events[j].name}</h5>
+                    <p class="card-text">${dataToRender.events[j].description}</p>     
+                </div>
+                <div class="card-text d-flex justify-content-around align-items-center">
+                <p>Price: ${dataToRender.events[j].price}$</p>
+                <a href="details.html?id=${dataToRender.events[j]._id}" class="btn btn-primary my-3">More Details</a>
+                </div>`
+                container.appendChild(card)
+            }
+        }
+        carruselItem.appendChild(container)
+        carrusel.appendChild(carruselItem)
+    }
 }
 
-let carrusel = document.getElementById("carousel-cards")
-console.log(upcomingEventsdata)
+//Category filter and render
+upcomingEventsdata.events.forEach(events => {
+    if (!categories.includes(events.category)) {
+        categories.push(events.category)
+    }
+})
+let navbarCategories = document.getElementById('navbarCategories')
 
-for (let i = 0; i < upcomingEventsdata.length; i += 4) {
-    let carruselItem
-    if (i < 4) {
-        carruselItem = document.createElement("div")
-        carruselItem.classList.add("carousel-item", "active")
+let categoryCheckbox = document.createElement("div");
+categoryCheckbox.classList.add("collapse", "navbar-collapse", "justify-content-end", "px-2")
+categoryCheckbox.setAttribute("id", "mainNavbar");
+for (let i = 0; i < categories.length; i++) {
+    let element = document.createElement("div");
+    element.classList.add("form-check", "form-check-inline")
+    element.innerHTML = `
+        <input class="form-check-input" type="checkbox" onClick="categoryFilter('${categories[i]}')">
+        <label class="form-check-label" for="inlineCheckbox1">${categories[i]}</label>
+       `
+    categoryCheckbox.appendChild(element)
+}
+navbarCategories.appendChild(categoryCheckbox)
+
+//Filter data by category
+function categoryFilter(category) {
+    let categoryExists = filteredCategories.events.includes(category);
+
+    if (categoryExists) {
+        filteredCategories.events = filteredCategories.events.filter(cat => cat !== category);
     } else {
-        carruselItem = document.createElement("div")
-        carruselItem.classList.add("carousel-item")
+        filteredCategories.events.push(category);
     }
-    let container = document.createElement("div")
-    container.classList.add("d-block", "d-md-flex", "justify-content-around")
 
-    for (let j = i; j < i + 4; j++) {
-        if (upcomingEventsdata[j] != undefined) {
-            let card = document.createElement("div")
-            card.classList.add("card", "mx-1", "my-3", "border", "col-12", "col-md-3", "cardSize")
-            card.innerHTML = `
-            <img src="${upcomingEventsdata[j].image}" class="card-img-top h-50" alt="${upcomingEventsdata[j].name}">
-            <div class="card-body">
-                <h5 class="card-title">${upcomingEventsdata[j].name}</h5>
-                <p class="card-text">${upcomingEventsdata[j].description}</p>     
-            </div>
-            <div class="card-text d-flex justify-content-around align-items-center">
-            <p>Price: ${upcomingEventsdata[j].price}$</p>
-            <a href="details.html" class="btn btn-primary my-3">More Details</a>
-            </div>`
-            console.log(card);
-            container.appendChild(card)
-        }
-    }
-    carruselItem.appendChild(container)
-    carrusel.appendChild(carruselItem)
+    dataCategorized.events = upcomingEventsdata.events.filter(event => filteredCategories.events.includes(event.category));
+    renderCarousel(dataCategorized.events.length > 0 ? dataCategorized : upcomingEventsdata);
 }
