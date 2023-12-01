@@ -195,9 +195,11 @@ let data = {
     ],
 };
 let pastEventsdata = { events: [] }
-let filteredCategories = { events: [] }
 let dataCategorized = { events: [] }
-let categories = [];
+let categories = []
+let filteredCategories = { events: [] }
+let filteredSearch = { events: [] }
+let combinedData = { events: [] }
 
 //Filter past events
 let todayDate = new Date(data.currentDate)
@@ -218,7 +220,10 @@ function renderCarousel(dataToRender) {
     carrusel.innerHTML = '';
 
     if (dataToRender.events.length === 0) {
-        dataToRender = pastEventsdata;
+        let element = document.createElement("div");
+        element.classList.add("col-12", "min-vh-50");
+        element.innerHTML = '<h2 class="text-center text-secondary my-5">I have nothing to show you</h2>';
+        carrusel.appendChild(element);
     }
 
     for (let i = 0; i < dataToRender.events.length; i += 4) {
@@ -255,7 +260,7 @@ function renderCarousel(dataToRender) {
     }
 }
 
-//Category filter and render
+//Checkbox category filter and render
 pastEventsdata.events.forEach(events => {
     if (!categories.includes(events.category)) {
         categories.push(events.category)
@@ -279,14 +284,33 @@ navbarCategories.appendChild(categoryCheckbox)
 
 //Filter data by category
 function categoryFilter(category) {
-    let categoryExists = filteredCategories.events.includes(category);
-
-    if (categoryExists) {
-        filteredCategories.events = filteredCategories.events.filter(cat => cat !== category);
+    console.log(category);
+    let categoryExists = filteredCategories.events.includes(category)
+    if (categoryExists === true) {
+        filteredCategories.events = filteredCategories.events.filter(categories => categories !== category)
     } else {
-        filteredCategories.events.push(category);
+        filteredCategories.events.push(category)
     }
+    combineFilters()
+}
 
-    dataCategorized.events = pastEventsdata.events.filter(event => filteredCategories.events.includes(event.category));
-    renderCarousel(dataCategorized.events.length > 0 ? dataCategorized : pastEventsdata);
+//Search
+let searchText = document.getElementById('searchText')
+searchText.addEventListener('keyup', combineFilters)
+searchText.addEventListener("search", combineFilters)
+
+
+//Combine category filter and search
+function combineFilters() {
+    let text = searchText.value.trim().toLowerCase()
+    filteredSearch.events = dataToRender.events.filter(event =>
+        event.name.toLowerCase().includes(text) ||       
+        event.description.toLowerCase().includes(text) ||
+        event.category.toLowerCase().includes(text)
+        )
+    
+    combinedData.events = filteredSearch.events.filter(event => {
+        return filteredCategories.events.length === 0 || filteredCategories.events.includes(event.category);
+    });
+    renderCarousel(combinedData.events.length > 0 ? { events: combinedData.events } : { events: [] });
 }
