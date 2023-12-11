@@ -5,14 +5,14 @@ let combinedData = { events: [] }
 //Render Carousel
 export function renderCarousel(dataToRender) {
     let carrusel = document.getElementById("carousel-cards");
-    carrusel.innerHTML = '';
+    carrusel.innerHTML = ''
 
     if (dataToRender.events.length === 0) {
         carrusel.innerHTML = `<h2 class="text-center text-secondary my-5">I have nothing to show you</h2>`
     }
 
     for (let i = 0; i < dataToRender.events.length; i += 4) {
-        let carruselItem;
+        let carruselItem
         if (i === 0) {
             carruselItem = document.createElement("div")
             carruselItem.classList.add("carousel-item", "active")
@@ -36,7 +36,7 @@ export function renderCarousel(dataToRender) {
                     <div class="card-text d-flex justify-content-around align-items-center">
                         <p>Price: ${dataToRender.events[j].price}$</p>
                         <a href="details.html?id=${dataToRender.events[j]._id}" class="btn btn-primary my-3">More Details</a>
-                    </div>`;
+                    </div>`
                 contenedor.appendChild(card)
             }
         }
@@ -65,20 +65,20 @@ export function checkBoxRender(dataToRender, categories) {
     })
     let navbarCategories = document.getElementById('navbarCategories')
 
-    let categoryCheckbox = document.createElement("div");
+    let categoryCheckbox = document.createElement("div")
     categoryCheckbox.classList.add("collapse", "navbar-collapse", "justify-content-end", "px-2")
-    categoryCheckbox.setAttribute("id", "mainNavbar");
+    categoryCheckbox.setAttribute("id", "mainNavbar")
     for (let i = 0; i < categories.length; i++) {
-        let element = document.createElement("div");
+        let element = document.createElement("div")
         element.classList.add("form-check", "form-check-inline")
         element.innerHTML = `
             <input class="form-check-input" type="checkbox" id="category_${i}">
-            <label class="form-check-label" for="category_${i}">${categories[i]}</label>
+            <label class="form-check-label noClickable" for="category_${i}">${categories[i]}</label>
            `
         { let j = i;
-            element.addEventListener('click', function () {
-                categoryFilter(categories[j], dataToRender);
-            });}
+            element.addEventListener('change', function () {
+                categoryFilter(categories[j], dataToRender)
+            })}
 
         categoryCheckbox.appendChild(element)
     }
@@ -90,12 +90,11 @@ export function combineFilters(dataToRender, searchText) {
     let text = searchText.value.trim().toLowerCase()
     filteredSearch.events = dataToRender.events.filter(event =>
         event.name.toLowerCase().includes(text) ||
-        event.description.toLowerCase().includes(text) ||
         event.category.toLowerCase().includes(text)
     )
 
     combinedData.events = filteredSearch.events.filter(event => {
         return filteredCategories.events.length === 0 || filteredCategories.events.includes(event.category);
-    });
-    renderCarousel(combinedData.events.length > 0 ? { events: combinedData.events } : { events: [] });
+    })
+    renderCarousel(combinedData.events.length > 0 ? { events: combinedData.events } : { events: [] })
 }
