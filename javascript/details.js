@@ -5,11 +5,8 @@ fetch(url)
         data = responseData
 
         let url = new URL(window.location.href)
-        console.log(url);
         let searchParams = new URLSearchParams(url.search)
         let printCard = data.events.filter((events) => events._id == searchParams.get('id'))
-        console.log(printCard);
-
         let detailCards = document.getElementById("detail-cards")
         let card = document.createElement("div")
         card.classList.add("card", "mb-3", "my-5")
